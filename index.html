@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Feliz Aniversário, Tia Naide ! 🎉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cork: #8B6239;
+    --cork-deep: #5F4023;
+    --paper: #FBF3E6;
+    --paper-edge: #EFE2CB;
+    --ink: #2B231C;
+    --ink-soft: #6B5642;
+    --tape-red: #E2574C;
+    --tape-teal: #3E8E89;
+    --gold: #D98F3E;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  *{ box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  html, body{
+    margin:0; padding:0; width:100%; height:100%;
+    overflow:hidden; overscroll-behavior:none;
+    touch-action: manipulation;
+    font-family:'Nunito', sans-serif;
+    color: var(--ink);
+  }
+
+  body{
+    background-color: var(--cork);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(0,0,0,0.16) 0 2px, transparent 3px),
+      radial-gradient(circle at 45% 65%, rgba(0,0,0,0.14) 0 2px, transparent 3px),
+      radial-gradient(circle at 75% 30%, rgba(0,0,0,0.15) 0 2px, transparent 3px),
+      radial-gradient(circle at 85% 80%, rgba(0,0,0,0.13) 0 2px, transparent 3px),
+      radial-gradient(circle at 30% 85%, rgba(0,0,0,0.12) 0 2px, transparent 3px),
+      radial-gradient(circle at 60% 10%, rgba(0,0,0,0.12) 0 2px, transparent 3px),
+      radial-gradient(120% 120% at 50% 0%, rgba(255,255,255,0.05), rgba(0,0,0,0.18) 75%);
+    background-size: 90px 90px, 70px 70px, 100px 100px, 80px 80px, 75px 75px, 95px 95px, 100% 100%;
+  }
+
+  .stage{
+    position:relative;
+    width:100vw; height:100vh;
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    padding: calc(20px + var(--safe-top)) 18px calc(20px + var(--safe-bottom));
+  }
+
+  /* ---------- doodles (hand-drawn, floating gently, not falling) ---------- */
+  .doodle{
+    position:fixed;
+    z-index:0;
+    opacity:0.5;
+    animation: bob 5s ease-in-out infinite;
+    pointer-events:none;
+  }
+  .doodle.d2{ animation-delay: 1.2s; animation-duration: 6s; }
+  .doodle.d3{ animation-delay: 0.4s; animation-duration: 4.5s; }
+  @keyframes bob{
+    0%,100%{ transform: translateY(0) rotate(-4deg); }
+    50%{ transform: translateY(-14px) rotate(3deg); }
+  }
+
+  /* ---------- the taped paper card ---------- */
+  .card{
+    position:relative;
+    z-index:2;
+    max-width: 380px;
+    width:100%;
+    background: var(--paper);
+    padding: 40px 26px 30px;
+    box-shadow: 0 18px 30px rgba(0,0,0,0.35), 0 2px 0 rgba(255,255,255,0.4) inset;
+    transform: rotate(-1.3deg);
+    clip-path: polygon(
+      0% 5%, 5% 1%, 10% 6%, 15% 2%, 20% 5%, 25% 1%, 30% 6%, 35% 2%,
+      40% 5%, 45% 1%, 50% 6%, 55% 2%, 60% 5%, 65% 1%, 70% 6%, 75% 2%,
+      80% 5%, 85% 1%, 90% 6%, 95% 2%, 100% 5%,
+      100% 100%, 0% 100%
+    );
+  }
+
+  .tape{
+    position:absolute;
+    width: 84px; height: 26px;
+    opacity: 0.9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .tape.t1{
+    top:-14px; left:-18px;
+    background: repeating-linear-gradient(135deg, var(--tape-red) 0 6px, #c94538 6px 12px);
+    transform: rotate(-38deg);
+  }
+  .tape.t2{
+    top:-14px; right:-14px;
+    background: repeating-linear-gradient(-135deg, var(--tape-teal) 0 6px, #33716d 6px 12px);
+    transform: rotate(32deg);
+  }
+  .tape.t3{
+    bottom:-14px; left: 40%;
+    background: repeating-linear-gradient(135deg, var(--tape-red) 0 6px, #c94538 6px 12px);
+    transform: translateX(-50%) rotate(-4deg);
+    opacity:0.75;
+  }
+
+  .postmark{
+    position:absolute;
+    top: 14px; right: 16px;
+    width: 66px; height: 66px;
+    border: 2px dashed var(--ink-soft);
+    border-radius: 50%;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    transform: rotate(9deg);
+    opacity:0.75;
+  }
+  .postmark span{
+    font-family:'Nunito', sans-serif;
+    font-weight:800;
+    font-size: 8.5px;
+    letter-spacing: 0.6px;
+    line-height:1.35;
+    color: var(--ink-soft);
+    text-transform:uppercase;
+  }
+
+  .content{
+    position:relative;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap: 10px;
+  }
+
+  .eyebrow{
+    font-family:'Nunito', sans-serif;
+    font-weight:700;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform:uppercase;
+    color: var(--gold);
+  }
+
+  h1{
+    margin:0;
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size: clamp(30px, 9vw, 40px);
+    line-height:1.1;
+    color: var(--ink);
+  }
+  h1 span{
+    display:block;
+    font-size: clamp(42px, 13vw, 58px);
+    color: var(--tape-red);
+  }
+
+  .divider{
+    width: 70px; height: 2px;
+    background: var(--ink-soft);
+    opacity:0.3;
+    margin: 2px 0 6px;
+  }
+
+  .message{
+    font-size: 14.5px;
+    line-height:1.6;
+    color: var(--ink-soft);
+    font-weight: 600;
+    padding: 0 2px;
+  }
+
+  .signature{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    font-size: 20px;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+
+  #gift-zone{
+    margin-top: 20px;
+    font-family:'Caveat', cursive;
+    font-size: 17px;
+    color: var(--paper);
+    opacity:0.85;
+    z-index:2;
+    position:relative;
+  }
+
+  /* ---------- runaway sticky-note button ---------- */
+  #gift-btn{
+    position: fixed;
+    z-index: 50;
+    border:none;
+    outline:none;
+    padding: 15px 20px 15px;
+    font-family:'Nunito', sans-serif;
+    font-weight:800;
+    font-size: 13.5px;
+    color: var(--ink);
+    background: #FFF6DC;
+    box-shadow: 0 10px 18px rgba(0,0,0,0.3);
+    cursor:pointer;
+    touch-action: none;
+    user-select:none;
+    -webkit-user-select:none;
+    transition: left 0.18s cubic-bezier(.34,1.56,.64,1), top 0.18s cubic-bezier(.34,1.56,.64,1), transform 0.15s ease;
+    left: 50%;
+    top: 86%;
+    transform: translate(-50%,-50%) rotate(-2deg);
+    white-space: nowrap;
+    max-width: 78vw;
+    text-align:center;
+  }
+  #gift-btn::before{
+    content:'';
+    position:absolute;
+    top:-9px; left:50%;
+    transform: translateX(-50%);
+    width: 16px; height:16px;
+    border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #ff8f7a, var(--tape-red) 65%);
+    box-shadow: 0 2px 3px rgba(0,0,0,0.4);
+  }
+  #gift-btn:active{ transform: translate(-50%,-50%) rotate(-2deg) scale(0.96); }
+  #gift-btn.wiggle{ animation: wiggle 0.35s ease; }
+  @keyframes wiggle{
+    0%,100%{ rotate: -2deg; }
+    25%{ rotate: -9deg; }
+    75%{ rotate: 4deg; }
+  }
+
+  .shake{ animation: shake 0.5s ease; }
+  @keyframes shake{
+    0%,100%{ transform: translateX(0); }
+    20%{ transform: translateX(-8px); }
+    40%{ transform: translateX(8px); }
+    60%{ transform: translateX(-6px); }
+    80%{ transform: translateX(6px); }
+  }
+
+  /* ---------- fake error notes ---------- */
+  .toast{
+    position: fixed;
+    left: 50%;
+    bottom: -80px;
+    transform: translateX(-50%) rotate(-1.5deg);
+    background: #FFF6DC;
+    color: var(--tape-red);
+    border-left: 4px solid var(--tape-red);
+    padding: 12px 18px;
+    font-family:'Nunito', sans-serif;
+    font-weight:700;
+    font-size: 12.5px;
+    z-index: 90;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+    animation: toastIn 1.4s ease forwards;
+    max-width: 84vw;
+    text-align:left;
+  }
+  @keyframes toastIn{
+    0%{ bottom:-80px; opacity:0; }
+    12%{ bottom:30px; opacity:1; }
+    85%{ bottom:30px; opacity:1; }
+    100%{ bottom:-80px; opacity:0; }
+  }
+
+  /* ---------- final reveal ---------- */
+  .overlay{
+    position: fixed; inset:0;
+    background: rgba(43,35,28,0.68);
+    display:flex; align-items:center; justify-content:center;
+    z-index: 100;
+    opacity:0;
+    pointer-events:none;
+    transition: opacity 0.35s ease;
+    padding: 20px;
+  }
+  .overlay.show{ opacity:1; pointer-events:auto; }
+
+  .modal{
+    background: var(--paper);
+    padding: 30px 24px 26px;
+    max-width: 340px;
+    text-align:center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    transform: scale(0.85) rotate(1deg);
+    transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
+    clip-path: polygon(
+      0% 5%, 6% 1%, 12% 5%, 18% 1%, 24% 5%, 30% 1%, 36% 5%, 42% 1%,
+      48% 5%, 54% 1%, 60% 5%, 66% 1%, 72% 5%, 78% 1%, 84% 5%, 90% 1%,
+      100% 5%, 100% 100%, 0% 100%
+    );
+  }
+  .overlay.show .modal{ transform: scale(1) rotate(0.5deg); }
+
+  .modal .big{ font-size:40px; }
+  .modal h2{
+    font-family:'Caveat', cursive;
+    font-weight:700;
+    color: var(--tape-red);
+    font-size: 30px;
+    margin: 8px 0 6px;
+  }
+  .modal p{
+    font-size:13.5px;
+    line-height:1.6;
+    color: var(--ink-soft);
+    font-weight:600;
+    margin: 0 0 18px;
+  }
+  .modal button{
+    border:none;
+    background: var(--ink);
+    color: var(--paper);
+    font-weight:800;
+    font-size:13px;
+    font-family:'Nunito', sans-serif;
+    padding: 12px 24px;
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<svg class="doodle d1" style="top:9%; left:6%; width:52px; height:70px;" viewBox="0 0 52 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="26" cy="26" rx="20" ry="24" stroke="#FBF3E6" stroke-width="2.5" opacity="0.6"/>
+  <path d="M26 50 L26 68" stroke="#FBF3E6" stroke-width="2" opacity="0.6"/>
+  <path d="M22 50 Q26 55 30 50" stroke="#FBF3E6" stroke-width="2" opacity="0.6" fill="none"/>
+</svg>
+
+<svg class="doodle d2" style="top:14%; right:8%; width:44px; height:60px;" viewBox="0 0 44 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="22" cy="22" rx="17" ry="20" stroke="#F4C95D" stroke-width="2.5" opacity="0.55"/>
+  <path d="M22 42 L22 58" stroke="#F4C95D" stroke-width="2" opacity="0.55"/>
+</svg>
+
+<svg class="doodle d3" style="bottom:10%; right:10%; width:40px; height:40px;" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20 2 L23 15 L36 15 L25 23 L29 36 L20 27 L11 36 L15 23 L4 15 L17 15 Z" stroke="#FBF3E6" stroke-width="2" opacity="0.4" fill="none"/>
+</svg>
+
+<div class="stage" id="stage">
+
+  <div class="card">
+    <div class="tape t1"></div>
+    <div class="tape t2"></div>
+    <div class="tape t3"></div>
+    <div class="postmark"><span>PARA<br>TIA<br>NAIDE</span></div>
+
+    <div class="content">
+      <div class="eyebrow">Um dia muito especial</div>
+      <h1>Feliz Aniversário<span>Tia Naide!</span></h1>
+      <div class="divider"></div>
+      <p class="message">
+        Feliz aniversário, tia! ❤️
+
+Hoje é um dia muito especial, e eu não poderia deixar de te desejar um aniversário cheio de alegria, saúde, paz e muitas realizações. Que Deus continue abençoando a sua vida, iluminando os seus caminhos e te dando muitos motivos para sorrir.
+
+Quero que saiba o quanto você é importante para mim. Você sempre foi uma pessoa muito especial, alguém que admiro e tenho um enorme carinho. Sou muito grato por ter uma tia como você.
+
+Que este novo ciclo seja repleto de felicidade, amor, momentos inesquecíveis e conquistas. Aproveite muito o seu dia, porque você merece tudo de melhor!
+
+Parabéns! Feliz aniversário! 🎉🎂❤️
+      </p>
+      <p class="signature">com todo amor, do seu sobrinho favoritooo 💕</p>
+    </div>
+  </div>
+
+  <div id="gift-zone">toque no papelzinho pra ganhar seu presente 👇</div>
+</div>
+
+<button id="gift-btn" type="button">🎁 clique aqui para ganhar seu presente :D</button>
+
+<div class="overlay" id="overlay">
+  <div class="modal">
+    <div class="big">🎁🎉</div>
+    <h2>Pegadinha!</h2>
+    <p>
+      Era só brincadeira, Tia Naide! O presente de verdade é o carinho que eu e a Bia tem pela senhora. KKKKKKKKK
+      Quando eu tiver nas condições te mandamos um presente
+      Feliz aniversário! Te amamos muito! 🥳💕
+    </p>
+    <button id="close-modal">fechar</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  const stage = document.getElementById('stage');
+  const btn = document.getElementById('gift-btn');
+  const overlay = document.getElementById('overlay');
+  const closeModalBtn = document.getElementById('close-modal');
+  const zoneLabel = document.getElementById('gift-zone');
+
+  const escapeLines = [
+    '🎁 clique aqui para ganhar seu presente',
+    'quase! 😝',
+    'ainda não! 🏃‍♀️',
+    'pera aí... 😂',
+    'essa não valeu! 🙈',
+    'tenta de novo! 😆',
+    'chega mais perto...'
+  ];
+
+  const maxAttempts = 5 + Math.floor(Math.random() * 2); // 5 or 6
+  let attempts = 0;
+  let caught = false;
+
+  function moveButtonRandomly(){
+    const margin = 16;
+    const bw = btn.offsetWidth;
+    const bh = btn.offsetHeight;
+    const maxX = window.innerWidth - bw - margin;
+    const maxY = window.innerHeight - bh - margin - 20;
+    const minY = 70;
+
+    const x = margin + Math.random() * Math.max(maxX - margin, 10);
+    const y = minY + Math.random() * Math.max(maxY - minY, 10);
+
+    btn.style.left = (x + bw / 2) + 'px';
+    btn.style.top = (y + bh / 2) + 'px';
+  }
+
+  function escape(){
+    attempts++;
+    btn.classList.remove('wiggle');
+    void btn.offsetWidth;
+    btn.classList.add('wiggle');
+    btn.textContent = escapeLines[Math.min(attempts, escapeLines.length - 1)];
+    moveButtonRandomly();
+    if (attempts === 2){
+      zoneLabel.textContent = 'ela não quer ser pega... 😅';
+    } else if (attempts === maxAttempts - 1){
+      zoneLabel.textContent = 'quase lá, tenta mais uma vez!';
+    }
+  }
+
+  const fakeErrors = [
+    '⚠️ erro 0x1F382: pacote de presente não encontrado',
+    '🚫 falha ao carregar felicidade... tentando novamente',
+    '📦 verificando estoque de abraços e beijos'
+  ];
+
+  function showToast(text, delay){
+    setTimeout(() => {
+      const t = document.createElement('div');
+      t.className = 'toast';
+      t.textContent = text;
+      document.body.appendChild(t);
+      setTimeout(() => t.remove(), 1500);
+    }, delay);
+  }
+
+  function catchButton(){
+    caught = true;
+    btn.style.transition = 'opacity 0.3s ease';
+    btn.style.opacity = '0';
+    btn.style.pointerEvents = 'none';
+    zoneLabel.style.opacity = '0';
+
+    stage.classList.add('shake');
+    setTimeout(() => stage.classList.remove('shake'), 550);
+
+    fakeErrors.forEach((msg, i) => showToast(msg, 300 + i * 950));
+
+    setTimeout(() => {
+      overlay.classList.add('show');
+    }, 300 + fakeErrors.length * 950 + 200);
+  }
+
+  btn.addEventListener('pointerdown', function(e){
+    e.preventDefault();
+    if (caught) return;
+    if (attempts < maxAttempts){
+      escape();
+    } else {
+      catchButton();
+    }
+  }, { passive: false });
+
+  closeModalBtn.addEventListener('click', function(){
+    overlay.classList.remove('show');
+  });
+
+  window.addEventListener('resize', function(){
+    if (!caught) moveButtonRandomly();
+  });
+
+  setTimeout(() => { if(!caught) btn.classList.add('wiggle'); }, 1200);
+})();
+</script>
+
+</body>
+</html>
